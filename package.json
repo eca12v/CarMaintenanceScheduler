@@ -1,0 +1,24 @@
+{
+  "name": "solo_project_attempt5",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "author": "Eric Anderson",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.5.7",
+    "angular-route": "^1.5.7",
+    "bcrypt": "^0.8.5",
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "express-session": "^1.13.0",
+    "express-validator": "^2.20.8",
+    "mongoose": "^4.5.3",
+    "passport": "^0.2.2",
+    "passport-local": "^1.0.0"
+  }
+}
