@@ -75,7 +75,7 @@ myApp.controller('addCtrl', ['$scope', '$http', function($scope, $http){
     $scope.submitCar = function(){
       var apiMaintURL = 'https://api.edmunds.com/v1/api/maintenance/actionrepository/findbymodelyearid?modelyearid=' + id + '&fmt=json&api_key=8wy99gdhrshfam5ydyjydakb';
       console.log(apiMaintURL);
-
+      console.log($scope.carMileage);
       $http({
         method: 'GET',
         url: apiMaintURL
@@ -86,8 +86,9 @@ myApp.controller('addCtrl', ['$scope', '$http', function($scope, $http){
           method: 'PUT',
           url: '/add',
           data: thingToSend
+        }).then(function(response){
+          console.log('user: ', response);
         });
       });
-
     };
 }]);

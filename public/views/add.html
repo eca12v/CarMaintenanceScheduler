@@ -19,6 +19,7 @@
         </select><br>
         <label>Car Year</label><select ng-model="carYearModel" ng-options="item for item in carYear" ng-change="getMakeModelId()" name="carYear">
         </select><br>
+        <input type="text" name="carMileage" ng-model="carMileage" placeholder="mileage">
         <button type="submit" name="button" ng-click="submitCar()">submit</button>
 
       </form>
