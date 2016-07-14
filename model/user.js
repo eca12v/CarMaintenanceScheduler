@@ -17,6 +17,33 @@ var UserSchema = new Schema ({
 	},
 	name: {
 		type: String
+	},
+	car: [{
+		id: String,
+    engineCode: String,
+    transmissionCode: String,
+    intervalMileage: String,
+    intervalMonth: String,
+    frequency: String,
+    action: String,
+    item: String,
+    itemDescription: String,
+    laborUnits: String,
+    partUnits: String,
+    driveType: String,
+    modelYear: String
+	}],
+	mileage: {
+		type: String
+	},
+	make: {
+		type: String
+	},
+	model: {
+		type: String
+	},
+	year: {
+		type: String
 	}
 });
 

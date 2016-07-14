@@ -11,6 +11,8 @@ var session = require('express-session');
 var index = require('./routes/index');
 var register = require('./routes/register');
 var add = require('./routes/add');
+var user = require('./routes/user');
+var main = require('./routes/main');
 
 // Body parser
 app.use(bodyParser.json());
@@ -57,7 +59,10 @@ app.use(express.static(path.join(__dirname, './public')));
 // routes
 app.use('/register', register);
 app.use('/add', add);
-app.use('/*', index);
+app.use('/user', user);
+app.use('/main', main);
+app.use('/', index);
+
 
 // App Set //
 app.set('port', (process.env.PORT || 5000));

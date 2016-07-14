@@ -12,8 +12,29 @@
   </head>
   <body>
     <div ng-include="'views/partials/nav.html'"></div>
-    <h1>USER</h1>
-
+    <div ng-controller="userCtrl">
+      <input type="text" name="currentMileage" value="" ng-model="currentMileageModel">
+      <label>Maintenance Miles</label><select ng-model="maintMilesModel" ng-options="item for item in maintMiles" ng-change="getMaintMiles()" name="maintMiles">
+      </select><br>
+      <table>
+        <thead>
+         <tr>
+           <th>Item</th>
+           <th>Action</th>
+           <th>Item Description</th>
+           <th>Total Parts Cost</th>
+         </tr>
+       </thead>
+       <tbody>
+         <tr ng-repeat="record in allTheRecords">
+           <td>{{ record.item }}</td>
+           <td>{{ record.action }}</td>
+           <td>{{ record.itemDescription }}</td>
+           <td>{{  }}</td>
+         </tr>
+       </tbody>
+     </table>
+    </div>
 
 
   </body>
