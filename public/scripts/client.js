@@ -144,7 +144,7 @@ myApp.controller('userCtrl', ['$scope', '$http', function($scope, $http){
 
     }
 
-    console.log('5th object ion masterArray: ', masterArray[4]);
+    console.log('number: ', Number(masterArray[4].intervalMileage), 'string?: ', masterArray[4].intervalMileage);
     for (var j = 0; j < masterArray.length; j++) {
       if(Number(masterArray[j].mileage)%mileage===0){
         var pushee = masterArray[j];
