@@ -6,10 +6,10 @@ var path = require('path');
 //Handles login form POST from index.html
 router.post('/',
     passport.authenticate('local', {
-        successRedirect: '/register',
+        successRedirect: '/main',
         failureRedirect: '/views/failure.html'
     })
-    
+
 );
 
 // Handle index file separately

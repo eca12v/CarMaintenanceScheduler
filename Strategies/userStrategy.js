@@ -7,7 +7,7 @@ var User = require('../model/user');
 // Only runs during authentication
 // Stores info on req.session.passport.user
 passport.serializeUser(function(user, done) {
-  console.log('serialized: ', user);
+  //console.log(user, ' :serialized: ');
   done(null, user.id);
 });
 
@@ -20,7 +20,7 @@ passport.deserializeUser(function(id, done) {
       done(err);
     }
 
-    console.log('deserialized: ', user);
+    //console.log(user, ' :deserialized: ');
     done(null, user);
   });
 });

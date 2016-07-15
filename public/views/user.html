@@ -2,7 +2,7 @@
 <html ng-app="myApp">
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="/vendors/bootstrap.min.js"charset="utf-8">
+    <link rel="stylesheet" href="/vendors/bootstrap.min.css"charset="utf-8">
     <link rel="stylesheet" href="/style/stylesheet.css"charset="utf-8">
 
     <script src="/vendors/angular.min.js" charset="utf-8"></script>
@@ -16,7 +16,7 @@
       <input type="text" name="currentMileage" value="" ng-model="currentMileageModel">
       <label>Maintenance Miles</label><select ng-model="maintMilesModel" ng-options="item for item in maintMiles" ng-change="getMaintMiles()" name="maintMiles">
       </select><br>
-      <table>
+      <table class="table table-striped table-bordered">
         <thead>
          <tr>
            <th>Item</th>
@@ -35,7 +35,5 @@
        </tbody>
      </table>
     </div>
-
-
   </body>
 </html>

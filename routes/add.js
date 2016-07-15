@@ -8,15 +8,15 @@ var mongoose = require('mongoose');
 // Handles request for HTML file
 router.get('/', function(req, res, next) {
   if(req.isAuthenticated()) {
-    console.log( 'add req.body: ', req.user.username );
+    console.log( req.user.username, ' :add req.body: ');
     res.sendFile(path.resolve(__dirname, '../public/views/add.html'));
   }else{res.sendFile(path.resolve(__dirname, '../public/views/failure.html'));}
 });
 
 // handles adding car submission from add.html page
 router.put('/', function(req, res){
-  console.log('username of user is: ', req.user.username);
-  console.log('in PUT request thing to send 3rd index: ', req.body.maintenance);
+  console.log(req.user.username, ' :username of user is: ' );
+  console.log(req.body.maintenance[2], ' :in PUT request thing to send 3rd index: ');
   var userName = req.user.username;
   var maintenanceInfo = req.body.maintenance;
   var mileageInfo = req.body.mileage;

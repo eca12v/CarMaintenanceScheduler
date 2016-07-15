@@ -38,7 +38,7 @@ router.post('/', function(req, res){
 			username: username,
 			password: password
 		});
-    console.log('new user: ', newUser);
+    console.log(newUser, ' :new user: ');
 		User.create(newUser, function(err, user){
 			if(err) throw err;
 			console.log(user);

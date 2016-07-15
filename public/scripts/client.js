@@ -146,14 +146,14 @@ myApp.controller('userCtrl', ['$scope', '$http', function($scope, $http){
 
     console.log('number: ', Number(masterArray[4].intervalMileage), 'string?: ', masterArray[4].intervalMileage);
     for (var j = 0; j < masterArray.length; j++) {
-      if(Number(masterArray[j].mileage)%mileage===0){
+      if(mileage%(Number(masterArray[j].intervalMileage))===0){
         var pushee = masterArray[j];
         $scope.allTheRecords.push(pushee);
       }else {}
     }
   });
 
-  // var getMaintMiles = function(mileageIn){
-  //
-  // };
+  var getMaintMiles = function(){
+  console.log('mileage in: ', $scope.maintMilesModel);
+  };
 }]);
