@@ -25,8 +25,12 @@ router.put('/', function(req, res){
   var yearInfo = req.body.year;
   var query = {username: userName};
   User.findOneAndUpdate(query, {car: maintenanceInfo, mileage: mileageInfo, make: makeInfo, model: modelInfo, year: yearInfo}, function(err){
+    console.log('username: ', req.user.username);
   });
-  res.sendFile(path.resolve(__dirname, '../public/views/index.html'));
+
+  //res.sendFile(path.resolve(__dirname, '../public/views/user.html'));
+  res.sendStatus(200);
+  //res.redirect(303, '../main/user');
 });
 
 // Handles POST request with new user data

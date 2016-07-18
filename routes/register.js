@@ -45,7 +45,7 @@ router.post('/', function(req, res){
 		});
 
 
-		res.redirect('/add');
+		res.redirect('/');
 	}
 
 

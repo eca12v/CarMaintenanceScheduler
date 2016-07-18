@@ -105,7 +105,8 @@ myApp.controller('addCtrl', ['$scope', '$http', '$window', function($scope, $htt
           data: thingToSend
         }).then(function(response){
           console.log('user: ', response);
-          //$window.location.href = '/user';
+
+          $window.location.href = '/main/user';
         });
       });
     };
@@ -117,6 +118,7 @@ myApp.controller('userCtrl', ['$scope', '$http', function($scope, $http){
   $scope.allTheRecords = [];
   $scope.masterArray =[];
   $scope.maintMiles = [];
+  
   var loadPage = function(){
     $http({
       method: 'GET',
@@ -156,6 +158,7 @@ myApp.controller('userCtrl', ['$scope', '$http', function($scope, $http){
 };
 
 loadPage();
+
   $scope.getMaintMiles = function(){
   //console.log('mileage in: ', $scope.maintMilesModel);
   mileage = $scope.maintMilesModel;

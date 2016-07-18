@@ -14,6 +14,7 @@ router.get('/', function(req, res){
        console.log(err, ' :err log');
        res.sendStatus(500);
      }else{
+       console.log('userList.make: ', usersList.make);
        res.send(usersList);
      }
    });
