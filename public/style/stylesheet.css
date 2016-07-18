@@ -2,6 +2,11 @@
 body {
   padding-top: 20px;
   padding-bottom: 20px;
+  background: url(http://media.salon.com/2012/10/car_lot_rect.jpg) no-repeat center center fixed;
+-webkit-background-size: cover;
+  -moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
 }
 
 .table-striped>tbody>tr:nth-child(odd)>td,
@@ -87,4 +92,43 @@ body {
     border-bottom: 0;
     background-color: #75a3a3;
   }
+}
+
+#submitButton {
+  margin-bottom: 20px;
+}
+
+#maintenanceTable {
+  width: 850px;
+  padding-right: 100px;
+  padding-left: 100px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+#topper {
+  color: white;
+  width: 850px;
+  margin-top: 50px;
+  margin-right: auto;
+  margin-left: auto;
+  background-color: #00004d;
+  border: 2px solid black;
+  border-radius: 5px
+}
+.navbar-brand
+{
+    position: absolute;
+    width: 100%;
+    left: 0;
+    text-align: center;
+    margin:0 auto;
+}
+
+#inputColor {
+  color: black;
+}
+
+#addContainer {
+  margin-top: 100px;
 }

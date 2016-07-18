@@ -2,7 +2,7 @@
 <html ng-app="myApp">
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="/vendors/bootstrap.min.js"charset="utf-8">
+    <link rel="stylesheet" href="/vendors/bootstrap.min.css"charset="utf-8">
     <link rel="stylesheet" href="/style/stylesheet.css"charset="utf-8">
 
     <script src="/vendors/angular.min.js" charset="utf-8"></script>
@@ -12,11 +12,13 @@
   </head>
   <body>
     <div class="container">
-      <div ng-include="'views/partials/nav.html'"></div>
-      <h1>INDEX</h1>
-      <h2 class="page-header">Account Login</h2>
+      <!-- <div ng-include="'views/partials/nav.html'"></div> -->
+
+
+
       <div class="jumbotron">
         <h1>Welcome to the CMS <br>(Car Maintenance Scheduler)</h1>
+        <h2 class="page-header">Account Login</h2>
         <form method="post" action="/" role="form">
           <div class="form-group">
             <label>Username</label>
@@ -26,9 +28,9 @@
             <label>Password</label>
             <input type="password" class="form-control" name="password" placeholder="Password">
           </div>
-          <button type="submit" class="btn btn-default">Submit</button>
+          <button type="submit" class="btn btn-default" id="submitButton">Submit</button>
         </form>
-        <p><a class="btn btn-lg btn-success" href="/register" role="button">Register Now</a></p>
+        <p>Haven't signed up yet?<br><a class="btn btn-lg btn-success" href="/register" role="button">Register Now</a></p>
       </div>
     </div>
 

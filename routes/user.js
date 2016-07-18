@@ -19,4 +19,14 @@ router.get('/', function(req, res){
    });
 });
 
+router.put('/', function(req, res){
+  var userName = req.user.username;
+  var mileageInfo = req.body.mileage;
+  var query = {username: userName};
+  User.findOneAndUpdate(query, {mileage: mileageInfo}, function(err){
+  });
+  //res.sendFile(path.resolve(__dirname, '../public/views/user.html'));
+  res.sendStatus(200);
+});
+
 module.exports = router;

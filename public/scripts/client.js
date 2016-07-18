@@ -115,45 +115,75 @@ myApp.controller('addCtrl', ['$scope', '$http', '$window', function($scope, $htt
 myApp.controller('userCtrl', ['$scope', '$http', function($scope, $http){
   console.log('in userCtrl');
   $scope.allTheRecords = [];
-  var masterArray =[];
+  $scope.masterArray =[];
   $scope.maintMiles = [];
-  $http({
-    method: 'GET',
-    url: '/user'
-  }).then(function(response){
-    console.log('first object in the array: ', response.data.mileage);
-    console.log('fifth index of maintenance array: ', response.data.car[4]);
-    $scope.currentMileageModel = response.data.mileage;
-    var mileage = response.data.mileage;
-    var round = function (x, to) {
-    return Math.round(x / to) * to;
-    };
-    mileage = round(mileage, 5000);
-    console.log('mileage is: ', mileage);
-    masterArray = response.data.car;
+  var loadPage = function(){
+    $http({
+      method: 'GET',
+      url: '/user'
+    }).then(function(response){
+      console.log('first object in the array: ', response.data.mileage);
+      console.log('fifth index of maintenance array: ', response.data.car[4]);
+      $scope.currentMileageModel = response.data.mileage;
+      var mileage = response.data.mileage;
+      var round = function (x, to) {
+      return Math.round(x / to) * to;
+      };
+      mileage = round(mileage, 5000);
+      //console.log('mileage is: ', mileage);
+      masterArray = response.data.car;
 
 
-    for (var i = 0; i < 7; i++) {
-      var pushedOne = (mileage - 5000) + (i * 5000);
-      if (pushedOne < 0) {
-        pushedOne = 0;
-        $scope.maintMiles.push(pushedOne);
-      }else {
-        $scope.maintMiles.push(pushedOne);
+      for (var i = 0; i < 7; i++) {
+        var pushedOne = (mileage - 5000) + (i * 5000);
+        if (pushedOne < 0) {
+          pushedOne = 0;
+          $scope.maintMiles.push(pushedOne);
+        }else {
+          $scope.maintMiles.push(pushedOne);
+        }
+
       }
 
-    }
+      //console.log('number: ', Number(masterArray[4].intervalMileage), 'string?: ', masterArray[4].intervalMileage);
+      for (var j = 0; j < masterArray.length; j++) {
+        if(mileage%(Number(masterArray[j].intervalMileage))===0){
+          var pushee = masterArray[j];
+          $scope.allTheRecords.push(pushee);
+        }else {}
+      }
+    });
+};
 
-    console.log('number: ', Number(masterArray[4].intervalMileage), 'string?: ', masterArray[4].intervalMileage);
-    for (var j = 0; j < masterArray.length; j++) {
-      if(mileage%(Number(masterArray[j].intervalMileage))===0){
-        var pushee = masterArray[j];
-        $scope.allTheRecords.push(pushee);
-      }else {}
-    }
-  });
+loadPage();
+  $scope.getMaintMiles = function(){
+  //console.log('mileage in: ', $scope.maintMilesModel);
+  mileage = $scope.maintMilesModel;
+  $scope.allTheRecords.length = 0;
+  for (var j = 0; j < masterArray.length; j++) {
+    if(mileage%(Number(masterArray[j].intervalMileage))===0){
+      var pushee = masterArray[j];
+      $scope.allTheRecords.push(pushee);
+    }else {}
+    console.log('mileage: ', mileage + 'masterArray.length: ', masterArray.length);
+  }
+  };
 
-  var getMaintMiles = function(){
-  console.log('mileage in: ', $scope.maintMilesModel);
+  $scope.updateMileage = function(){
+    $scope.allTheRecords.length = 0;
+    $scope.masterArray.length = 0;
+    $scope.maintMiles.length = 0;
+    var mileageIn = $scope.currentMileageModel;
+    var objectToSend = {
+      mileage: mileageIn
+    };
+    $http({
+      method: 'PUT',
+      url: '/user',
+      data: objectToSend
+    }).then(function(response){
+      loadPage();
+    });
+
   };
 }]);

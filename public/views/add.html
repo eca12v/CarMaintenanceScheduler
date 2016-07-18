@@ -2,7 +2,7 @@
 <html ng-app="myApp">
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="/vendors/bootstrap.min.js"charset="utf-8">
+    <link rel="stylesheet" href="/vendors/bootstrap.min.css"charset="utf-8">
     <link rel="stylesheet" href="/style/stylesheet.css"charset="utf-8">
 
     <script src="/vendors/angular.min.js" charset="utf-8"></script>
@@ -11,18 +11,24 @@
     <title></title>
   </head>
   <body>
-    <div ng-controller="addCtrl">
-      <form>
-        <label>Car Make</label><select ng-model="carMakeModel" ng-options="item for item in carMake" ng-change="getCarModels()" name="carMake">
-        </select><br>
-        <label>Car Model</label><select ng-model="carModelModel" ng-options="item for item in carModel" ng-change="getCarYears()" name="carModel">
-        </select><br>
-        <label>Car Year</label><select ng-model="carYearModel" ng-options="item for item in carYear" ng-change="getMakeModelId()" name="carYear">
-        </select><br>
-        <input type="text" name="carMileage" ng-model="carMileage" placeholder="mileage">
-        <button type="submit" name="button" ng-click="submitCar()">submit</button>
-
-      </form>
+    <div id="addContainer" class="container">
+      <div id="jumbotronId" class="jumbotron">
+        <h1>Add Car</h1>
+        <h5>Find your car model and enter your current mileage on it.</h5>
+        <div ng-controller="addCtrl">
+          <form>
+            <label>Car Make</label><select ng-model="carMakeModel" ng-options="item for item in carMake" ng-change="getCarModels()" name="carMake">
+            </select><br>
+            <label>Car Model</label><select ng-model="carModelModel" ng-options="item for item in carModel" ng-change="getCarYears()" name="carModel">
+            </select><br>
+            <label>Car Year</label><select ng-model="carYearModel" ng-options="item for item in carYear" ng-change="getMakeModelId()" name="carYear">
+            </select><br>
+            <input type="text" name="carMileage" ng-model="carMileage" placeholder="mileage">
+            <button type="submit" name="button" ng-click="submitCar()">submit</button>
+          </form>
+          <p>* once you have submitted your car you will be able to login and view your maintenance schedule</p>
+        </div>
+      </div>
     </div>
   </body>
 </html>

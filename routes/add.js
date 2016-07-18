@@ -7,10 +7,10 @@ var mongoose = require('mongoose');
 
 // Handles request for HTML file
 router.get('/', function(req, res, next) {
-  if(req.isAuthenticated()) {
-    console.log( req.user.username, ' :add req.body: ');
+
+
     res.sendFile(path.resolve(__dirname, '../public/views/add.html'));
-  }else{res.sendFile(path.resolve(__dirname, '../public/views/failure.html'));}
+
 });
 
 // handles adding car submission from add.html page
@@ -26,7 +26,7 @@ router.put('/', function(req, res){
   var query = {username: userName};
   User.findOneAndUpdate(query, {car: maintenanceInfo, mileage: mileageInfo, make: makeInfo, model: modelInfo, year: yearInfo}, function(err){
   });
-  res.sendFile(path.resolve(__dirname, '../public/views/user.html'));
+  res.sendFile(path.resolve(__dirname, '../public/views/index.html'));
 });
 
 // Handles POST request with new user data

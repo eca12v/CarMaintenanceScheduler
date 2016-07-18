@@ -11,18 +11,33 @@
     <title></title>
   </head>
   <body>
-    <div ng-include="'views/partials/nav.html'"></div>
+    <nav class="navbar navbar-default navbar-fixed-top">
+
+      <!-- <div class="navbar-header">
+        <a class="navbar-brand" href="#">WebSiteName</a>
+      </div> -->
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand">CMS&trade;</a>
+        </div>
+        <ul class="nav nav-pills pull-right">
+          <li role="presentation"><a href="/main/logout">logout</a></li>
+        </ul>
+      </div>
+    </nav>
     <div ng-controller="userCtrl">
-      <input type="text" name="currentMileage" value="" ng-model="currentMileageModel">
-      <label>Maintenance Miles</label><select ng-model="maintMilesModel" ng-options="item for item in maintMiles" ng-change="getMaintMiles()" name="maintMiles">
-      </select><br>
-      <table class="table table-striped table-bordered">
+      <div id='topper'>
+        <label>Current Mileage:</label><input id="inputColor" type="text" name="currentMileage" value="" ng-model="currentMileageModel"><button type="button" ng-click="updateMileage()" name="button" class="btn btn-primary">Update Mileage</button>
+        <label>Maintenance Miles</label><select ng-init="maintMilesModel = options[0]" ng-model="maintMilesModel" ng-options="item for item in maintMiles" ng-change="getMaintMiles()" name="maintMiles">
+        </select><br>
+      </div>
+      <table id="maintenanceTable" class="table table-striped table-bordered">
         <thead>
-         <tr>
+         <tr bgcolor="#677077">
            <th>Item</th>
            <th>Action</th>
            <th>Item Description</th>
-           <th>Total Parts Cost</th>
+
          </tr>
        </thead>
        <tbody>
@@ -30,7 +45,7 @@
            <td>{{ record.item }}</td>
            <td>{{ record.action }}</td>
            <td>{{ record.itemDescription }}</td>
-           <td>{{  }}</td>
+
          </tr>
        </tbody>
      </table>
