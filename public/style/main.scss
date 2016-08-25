@@ -60,19 +60,21 @@ background-size: cover;
 .jumbotron {
   text-align: center;
   border-bottom: 1px solid #e5e5e5;
+  .btn {
+    padding: 14px 24px;
+    font-size: 21px;
+  }
 }
-.jumbotron .btn {
-  padding: 14px 24px;
-  font-size: 21px;
-}
+
 
 /* Supporting marketing content */
 .marketing {
   margin: 40px 0;
+  p + h4 {
+    margin-top: 28px;
+  }
 }
-.marketing p + h4 {
-  margin-top: 28px;
-}
+
 
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
